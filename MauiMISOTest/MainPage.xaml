@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiMISOTest.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentPage.Resources>
+        <Style x:Key="titleLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Margin" Value="0, 0, 0, 5" />
+        </Style>
+        <Style x:Key="valueLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="17" />
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout BackgroundColor="Gray">
+        <ScrollView>
+            <Grid
+                Padding="20,15,20,15"
+                BackgroundColor="White"
+                RowDefinitions="auto,auto,auto"
+                RowSpacing="50">
+
+                <Grid RowDefinitions="auto,auto,auto,auto,auto">
+                    <Label Grid.Row="0" Style="{StaticResource titleLabel}">
+                        내 주소
+                    </Label>
+                    <Label Grid.Row="1" Style="{StaticResource valueLabel}">서울 강남구 강남대로</Label>
+                    <Label
+                        Grid.Row="2"
+                        Margin="0,0,0,20"
+                        Style="{StaticResource valueLabel}">
+                        396 가암역 지하 1층
+                    </Label>
+                    <Label Grid.Row="3" Style="{StaticResource titleLabel}">
+                        반려동물
+                    </Label>
+                    <Label Grid.Row="4" Style="{StaticResource valueLabel}">없음</Label>
+                </Grid>
+
+                <Grid
+                    Grid.Row="1"
+                    ColumnDefinitions="*, *"
+                    RowDefinitions="auto,auto,auto">
+                    <Label Grid.Row="0" Style="{StaticResource titleLabel}">결제 정보</Label>
+                    <Label
+                        Grid.Row="1"
+                        Margin="0,0,0,5"
+                        Style="{StaticResource valueLabel}">
+                        결제 예정 금액
+                    </Label>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="End"
+                        Style="{StaticResource valueLabel}">
+                        31,200원
+                    </Label>
+                    <Label
+                        Grid.Row="2"
+                        FontSize="14"
+                        TextColor="#a9adb4">
+                        결제는 서비스가 완료된 후 진행됩니다.
+                    </Label>
+                </Grid>
+
+                <Grid Grid.Row="2" RowDefinitions="auto,auto,auto,auto,auto,auto,auto" >
+                    <Label>청소 도구를 꼭 준비해주세요.</Label>
+                    <Grid ColumnDefinitions="50, 50, 50, 50" HeightRequest="50" BackgroundColor="Red" ColumnSpacing="10">
+                        <BoxView></BoxView>
+                        <BoxView Grid.Column="1"></BoxView>
+                        <BoxView Grid.Column="2"></BoxView>
+                        <BoxView Grid.Column="3"></BoxView>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </StackLayout>
+
+</ContentPage>

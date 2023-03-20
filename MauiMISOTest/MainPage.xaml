@@ -24,14 +24,12 @@
         </Style>
     </ContentPage.Resources>
 
-    <!--<StackLayout>
-        <ScrollView>-->
     <Grid BackgroundColor="Gray">
-        <ScrollView>
+        <ScrollView BackgroundColor="Gray">
             <Grid
                 BackgroundColor="White"
                 RowDefinitions="auto,180,110,430"
-                RowSpacing="10">
+                RowSpacing="20">
 
                 <Image Source="city_gangnam.jpg" />
 
@@ -173,8 +171,4 @@
             Text="확인"
             VerticalOptions="End" />
     </Grid>
-    <!--</ScrollView>-->
-
-    <!--</StackLayout>-->
-
 </ContentPage>

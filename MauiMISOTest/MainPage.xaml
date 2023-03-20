@@ -3,7 +3,7 @@
     x:Class="MauiMISOTest.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="Gray">
+    Background="#f3f4f7">
 
     <ContentPage.Resources>
         <Style x:Key="titleLabel" TargetType="Label">
@@ -24,18 +24,16 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid BackgroundColor="Gray">
-        <ScrollView BackgroundColor="Gray">
-            <Grid
-                BackgroundColor="White"
-                RowDefinitions="auto,180,110,430"
-                RowSpacing="20">
+    <Grid>
+        <ScrollView>
+            <Grid RowDefinitions="auto,180,110,430" RowSpacing="10">
 
                 <Image Source="city_gangnam.jpg" />
 
                 <Grid
                     Grid.Row="1"
                     Padding="20,15,20,15"
+                    Background="white"
                     RowDefinitions="auto,auto,auto,auto,auto">
                     <Label Grid.Row="0" Style="{StaticResource titleLabel}">
                         내 주소
@@ -56,6 +54,7 @@
                 <Grid
                     Grid.Row="2"
                     Padding="20,15,20,15"
+                    Background="white"
                     ColumnDefinitions="*, *"
                     RowDefinitions="auto,auto,auto">
                     <Label Grid.Row="0" Style="{StaticResource titleLabel}">결제 정보</Label>
@@ -84,6 +83,7 @@
                 <Grid
                     Grid.Row="3"
                     Padding="20,15,20,15"
+                    Background="white"
                     RowDefinitions="auto,auto,auto,auto">
                     <Label Grid.Row="0" Margin="0,0,0,10">청소 도구를 꼭 준비해주세요.</Label>
                     <Grid

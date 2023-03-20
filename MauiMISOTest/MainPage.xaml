@@ -2,7 +2,8 @@
 <ContentPage
     x:Class="MauiMISOTest.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="Gray">
 
     <ContentPage.Resources>
         <Style x:Key="titleLabel" TargetType="Label">
@@ -12,17 +13,32 @@
         <Style x:Key="valueLabel" TargetType="Label">
             <Setter Property="FontSize" Value="17" />
         </Style>
+        <Style x:Key="cleanToolBoxView" TargetType="BoxView">
+            <Setter Property="WidthRequest" Value="76" />
+            <Setter Property="HeightRequest" Value="76" />
+            <Setter Property="Color" Value="#f3f4f7" />
+        </Style>
+        <Style x:Key="cleanToolLabel" TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
     </ContentPage.Resources>
 
-    <StackLayout BackgroundColor="Gray">
+    <!--<StackLayout>
+        <ScrollView>-->
+    <Grid BackgroundColor="Gray">
         <ScrollView>
             <Grid
-                Padding="20,15,20,15"
                 BackgroundColor="White"
-                RowDefinitions="auto,auto,auto"
-                RowSpacing="50">
+                RowDefinitions="auto,180,110,430"
+                RowSpacing="10">
 
-                <Grid RowDefinitions="auto,auto,auto,auto,auto">
+                <Image Source="city_gangnam.jpg" />
+
+                <Grid
+                    Grid.Row="1"
+                    Padding="20,15,20,15"
+                    RowDefinitions="auto,auto,auto,auto,auto">
                     <Label Grid.Row="0" Style="{StaticResource titleLabel}">
                         내 주소
                     </Label>
@@ -40,7 +56,8 @@
                 </Grid>
 
                 <Grid
-                    Grid.Row="1"
+                    Grid.Row="2"
+                    Padding="20,15,20,15"
                     ColumnDefinitions="*, *"
                     RowDefinitions="auto,auto,auto">
                     <Label Grid.Row="0" Style="{StaticResource titleLabel}">결제 정보</Label>
@@ -59,23 +76,105 @@
                     </Label>
                     <Label
                         Grid.Row="2"
+                        Grid.ColumnSpan="2"
                         FontSize="14"
                         TextColor="#a9adb4">
                         결제는 서비스가 완료된 후 진행됩니다.
                     </Label>
                 </Grid>
 
-                <Grid Grid.Row="2" RowDefinitions="auto,auto,auto,auto,auto,auto,auto" >
-                    <Label>청소 도구를 꼭 준비해주세요.</Label>
-                    <Grid ColumnDefinitions="50, 50, 50, 50" HeightRequest="50" BackgroundColor="Red" ColumnSpacing="10">
-                        <BoxView></BoxView>
-                        <BoxView Grid.Column="1"></BoxView>
-                        <BoxView Grid.Column="2"></BoxView>
-                        <BoxView Grid.Column="3"></BoxView>
+                <Grid
+                    Grid.Row="3"
+                    Padding="20,15,20,15"
+                    RowDefinitions="auto,auto,auto,auto">
+                    <Label Grid.Row="0" Margin="0,0,0,10">청소 도구를 꼭 준비해주세요.</Label>
+                    <Grid
+                        Grid.Row="1"
+                        ColumnDefinitions="auto, auto, auto, auto"
+                        ColumnSpacing="15"
+                        HorizontalOptions="Center"
+                        RowDefinitions="auto, 30, auto, auto">
+
+                        <BoxView Style="{StaticResource cleanToolBoxView}" />
+                        <BoxView Grid.Column="1" Style="{StaticResource cleanToolBoxView}" />
+                        <BoxView Grid.Column="2" Style="{StaticResource cleanToolBoxView}" />
+                        <BoxView Grid.Column="3" Style="{StaticResource cleanToolBoxView}" />
+
+                        <Label Grid.Row="1" Style="{StaticResource cleanToolLabel}">청소기</Label>
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Style="{StaticResource cleanToolLabel}">
+                            쓰레기봉투
+                        </Label>
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Style="{StaticResource cleanToolLabel}">
+                            수세미
+                        </Label>
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Style="{StaticResource cleanToolLabel}">
+                            욕실세제
+                        </Label>
+
+                        <BoxView Grid.Row="2" Style="{StaticResource cleanToolBoxView}" />
+                        <BoxView
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Style="{StaticResource cleanToolBoxView}" />
+                        <BoxView
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Style="{StaticResource cleanToolBoxView}" />
+                        <BoxView
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            Style="{StaticResource cleanToolBoxView}" />
+
+                        <Label Grid.Row="3" Style="{StaticResource cleanToolLabel}">밀대걸레</Label>
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Style="{StaticResource cleanToolLabel}">
+                            고무장갑
+                        </Label>
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            Style="{StaticResource cleanToolLabel}">
+                            주방세제
+                        </Label>
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            Style="{StaticResource cleanToolLabel}">
+                            걸레
+                        </Label>
                     </Grid>
+                    <Label Grid.Row="2" Margin="0,30,0,10">취소/변경시 규정에 따라 수수료가 부과됩니다.</Label>
+                    <Label
+                        Grid.Row="3"
+                        FontAttributes="Bold"
+                        TextColor="#065bf5">
+                        수수료 규정 보기
+                    </Label>
                 </Grid>
+
             </Grid>
         </ScrollView>
-    </StackLayout>
+        <Button
+            BackgroundColor="#9bbefb"
+            CornerRadius="0"
+            FontSize="18"
+            HeightRequest="55"
+            Text="확인"
+            VerticalOptions="End" />
+    </Grid>
+    <!--</ScrollView>-->
+
+    <!--</StackLayout>-->
 
 </ContentPage>

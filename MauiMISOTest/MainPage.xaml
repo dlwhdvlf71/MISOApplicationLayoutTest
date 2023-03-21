@@ -85,74 +85,37 @@
                     Grid.Row="3"
                     Padding="20,15,20,15"
                     Background="white"
-                    RowDefinitions="auto,auto,auto,auto">
+                    RowDefinitions="auto,auto,auto,auto,auto">
                     <Label Grid.Row="0" Margin="0,0,0,10">청소 도구를 꼭 준비해주세요.</Label>
-                    <Grid
+                    <FlexLayout
                         Grid.Row="1"
-                        ColumnDefinitions="auto, auto, auto, auto"
-                        ColumnSpacing="15"
-                        HorizontalOptions="Center"
-                        RowDefinitions="auto, 30, auto, auto">
-
-                        <BoxView Style="{StaticResource cleanToolBoxView}" />
-                        <BoxView Grid.Column="1" Style="{StaticResource cleanToolBoxView}" />
-                        <BoxView Grid.Column="2" Style="{StaticResource cleanToolBoxView}" />
-                        <BoxView Grid.Column="3" Style="{StaticResource cleanToolBoxView}" />
-
-                        <Label Grid.Row="1" Style="{StaticResource cleanToolLabel}">청소기</Label>
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Style="{StaticResource cleanToolLabel}">
-                            쓰레기봉투
-                        </Label>
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="2"
-                            Style="{StaticResource cleanToolLabel}">
-                            수세미
-                        </Label>
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="3"
-                            Style="{StaticResource cleanToolLabel}">
-                            욕실세제
-                        </Label>
-
-                        <BoxView Grid.Row="2" Style="{StaticResource cleanToolBoxView}" />
-                        <BoxView
-                            Grid.Row="2"
-                            Grid.Column="1"
-                            Style="{StaticResource cleanToolBoxView}" />
-                        <BoxView
-                            Grid.Row="2"
-                            Grid.Column="2"
-                            Style="{StaticResource cleanToolBoxView}" />
-                        <BoxView
-                            Grid.Row="2"
-                            Grid.Column="3"
-                            Style="{StaticResource cleanToolBoxView}" />
-
-                        <Label Grid.Row="3" Style="{StaticResource cleanToolLabel}">밀대걸레</Label>
-                        <Label
-                            Grid.Row="3"
-                            Grid.Column="1"
-                            Style="{StaticResource cleanToolLabel}">
-                            고무장갑
-                        </Label>
-                        <Label
-                            Grid.Row="3"
-                            Grid.Column="2"
-                            Style="{StaticResource cleanToolLabel}">
-                            주방세제
-                        </Label>
-                        <Label
-                            Grid.Row="3"
-                            Grid.Column="3"
-                            Style="{StaticResource cleanToolLabel}">
-                            걸레
-                        </Label>
-                    </Grid>
+                        Direction="Row"
+                        JustifyContent="SpaceBetween"
+                        Wrap="Wrap">
+                        <BindableLayout.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>청소기</x:String>
+                                <x:String>쓰레기봉투</x:String>
+                                <x:String>수세미</x:String>
+                                <x:String>욕실세제</x:String>
+                                <x:String>밀대걸레</x:String>
+                                <x:String>고무장갑</x:String>
+                                <x:String>주방세제</x:String>
+                                <x:String>걸레</x:String>
+                            </x:Array>
+                        </BindableLayout.ItemsSource>
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid HeightRequest="110" RowDefinitions="auto, 30">
+                                    <BoxView Style="{StaticResource cleanToolBoxView}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Style="{StaticResource cleanToolLabel}"
+                                        Text="{Binding}" />
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </FlexLayout>
                     <Label Grid.Row="2" Margin="0,30,0,10">취소/변경시 규정에 따라 수수료가 부과됩니다.</Label>
                     <Label
                         Grid.Row="3"
@@ -161,7 +124,6 @@
                         수수료 규정 보기
                     </Label>
                 </Grid>
-
             </Grid>
         </ScrollView>
         <Button
